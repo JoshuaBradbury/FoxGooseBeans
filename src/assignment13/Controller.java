@@ -6,13 +6,19 @@ import java.awt.event.ActionListener;
 public class Controller implements ActionListener {
 
 	private Model model;
+	private boolean blocked;
 	
 	public Controller(Model model) {
 		this.model = model;
 	}
 	
+	public void setBlocked(boolean blocked) {
+		this.blocked = blocked;
+	}
+	
 	@Override
 	public void actionPerformed(ActionEvent ae) {
+		if (blocked) return;
 		switch(ae.getActionCommand()) {
 		case "RESET":
 			model.reset();

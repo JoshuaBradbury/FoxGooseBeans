@@ -92,19 +92,22 @@ public class Display extends JPanel {
 	public void moveBoat() {
 		anim1 = new SwingWorker<Void, Void>() {
 			protected Void doInBackground() throws Exception {
-				if (boatMoving)
+				if (boatMoving) 
 					return null;
 				boatMoving = true;
+				view.blockController(true);
 				for (int i = 0; i < 2000; i++) {
 					try {
 						Thread.sleep(1);
 					} catch (InterruptedException e) {
 						break;
 					}
+					if (boatMoving)
 					boatLoc = (boatLeft ? 1 : -1) * sinusoidalEasing(i, 0, 1, 2000);
 					view.repaint();
 				}
 				boatMoving = false;
+				view.blockController(false);
 				boatLeft = !boatLeft;
 				boatLoc = 0;
 				AffineTransform tx = AffineTransform.getScaleInstance(-1, 1);

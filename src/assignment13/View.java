@@ -17,7 +17,7 @@ public class View extends JFrame implements Observer {
 	private JPanel buttons;
 	private Display gameView;
 	private int score;
-
+	
 	public View(Controller controller) {
 		super("Fox, Goose and Bag of Beans");
 		this.controller = controller;
@@ -28,6 +28,10 @@ public class View extends JFrame implements Observer {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
 		setVisible(true);
+	}
+
+	public void blockController(boolean block) {
+		controller.setBlocked(block);
 	}
 
 	public void initWidgets() {
