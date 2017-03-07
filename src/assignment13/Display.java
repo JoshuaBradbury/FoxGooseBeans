@@ -194,7 +194,7 @@ public class Display extends JPanel {
 		int boatY = (getHeight() - boatImage.getHeight()) / 2;
 
 		g.drawImage(grassImage.getSubimage(0, 0, 175, Math.min(getHeight(), grassImage.getHeight())), 0, 0, 175, this.getHeight(), null);
-		g.drawImage(waterImage.getSubimage(0, 0, getWidth() - 350, Math.min(getHeight(), waterImage.getHeight())), 175, 0, getWidth() - 350, this.getHeight(), null);
+		g.drawImage(waterImage.getSubimage(0, 0, Math.min(getWidth() - 350, waterImage.getWidth()), Math.min(getHeight(), waterImage.getHeight())), 175, 0, getWidth() - 350, this.getHeight(), null);
 		g.drawImage(grassImage.getSubimage(0, 0, 175, Math.min(getHeight(), grassImage.getHeight())), getWidth() - 175, 0, 175, this.getHeight(), null);
 		g.drawImage(boatImage, boatX, boatY, null);
 
